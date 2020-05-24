@@ -12,7 +12,7 @@
 
 #include "get_next_line.h"
 
-int		ft_strlen(char *str)
+int		ft_strlen_gnl(char *str)
 {
 	int		i;
 

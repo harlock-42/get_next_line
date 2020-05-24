@@ -18,12 +18,8 @@
 # include <stdio.h>
 
 int		get_next_line(int fd, char **line);
-int		ft_strlen(char *str);
+int		ft_strlen_gnl(char *str);
 int		is_to_c(char *str, int c);
 int		ft_error(char **s1, char **s2);
-int		end_of_file(char **str);
-char	*ft_realloc_stock(char *src);
-char	*ft_line(char *src, int *stop);
-char	*stock_cat(char *str, char *buff, int *stop);
 
 #endif

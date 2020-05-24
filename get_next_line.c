@@ -12,7 +12,7 @@
 
 #include "get_next_line.h"
 
-char	*stock_cat(char *str, char *buff, int *stop)
+static	char	*stock_cat(char *str, char *buff, int *stop)
 {
 	int		i;
 	int		j;
@@ -21,7 +21,7 @@ char	*stock_cat(char *str, char *buff, int *stop)
 
 	i = 0;
 	j = 0;
-	new_len = ft_strlen(str) + ft_strlen(buff);
+	new_len = ft_strlen_gnl(str) + ft_strlen_gnl(buff);
 	if (!(new = malloc(sizeof(char) * (new_len + 1))))
 		return (NULL);
 	while (str && *(str + i))
@@ -41,7 +41,7 @@ char	*stock_cat(char *str, char *buff, int *stop)
 	return (new);
 }
 
-char	*ft_line(char *src, int *stop)
+static	char	*ft_line(char *src, int *stop)
 {
 	int		i;
 	int		src_len;
@@ -66,7 +66,7 @@ char	*ft_line(char *src, int *stop)
 	return (new);
 }
 
-char	*ft_realloc_stock(char *src)
+static	char	*ft_realloc_stock(char *src)
 {
 	int		i;
 	int		j;
@@ -84,7 +84,7 @@ char	*ft_realloc_stock(char *src)
 		}
 		++i;
 	}
-	size = ft_strlen(src) - i;
+	size = ft_strlen_gnl(src) - i;
 	if (!(new = malloc(sizeof(char) * (size + 1))))
 		return (NULL);
 	while (src && *(src + i))
@@ -94,7 +94,7 @@ char	*ft_realloc_stock(char *src)
 	return (new);
 }
 
-int		end_of_file(char **str)
+static	int		end_of_file(char **str)
 {
 	if (str && *str)
 	{
@@ -110,7 +110,7 @@ int		get_next_line(int fd, char **line)
 	int				ret;
 	char			*tmp_line;
 	char			buff[BUFFER_SIZE + 1];
-	char	static	*stock = NULL;
+	static	char	*stock = NULL;
 
 	stop = 0;
 	if (fd < 0 || (read(fd, buff, 0)) < 0 || line == NULL || BUFFER_SIZE == 0)
